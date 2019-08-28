@@ -1,29 +1,25 @@
 # -*- coding: utf-8 -*-
 """
-.. codeauthor:: Jaume Bonet <jaume.bonet@gmail.com>
+Filler data generators.
 """
 # Standard Libraries
-import os.path as op
-from pathlib import Path
-from functools import partial
-from typing import Callable, Union, List, Optional
+from typing import List, Optional
 import string
-from operator import itemgetter
 
 # External Libraries
 import pandas as pd
 import numpy.random as npr
 
 
-_all_ = ['dummy_df']
+_all_ = ['simple_random_df']
 
 
-def dummy_df( rows: int,
-              columns: int,
-              dtype: Optional[str] = 'int',
-              names: Optional[List[str]] = None
-              ) -> pd.DataFrame:
-    """Generate a dummy :class:`~pandas.DataFrame`.
+def simple_random_df( rows: int,
+                      columns: int,
+                      dtype: Optional[str] = 'int',
+                      names: Optional[List[str]] = None
+                      ) -> pd.DataFrame:
+    """Generate a random :class:`~pandas.DataFrame`.
 
     Content is defined by ``dtype``. It can be an  ``int``, a ``float``
     or any attribute from the ``string`` library; that is, for example,
@@ -35,6 +31,8 @@ def dummy_df( rows: int,
     `recipe <https://stackoverflow.com/a/32752318/2806632>`_,
     `recipe <https://stackoverflow.com/a/18272249/2806632>`_,
     `recipe <https://stackoverflow.com/a/48399379/2806632>`_
+
+    .. codeauthor:: Jaume Bonet <jaume.bonet@gmail.com>
     """
     if names is None:
         names = list(string.ascii_uppercase[:columns])

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Filler data generators.
+Data Modifiers.
 """
 # Standard Libraries
 import copy
@@ -10,13 +10,13 @@ from typing import List, Optional, Union
 import pandas as pd
 
 
-_all_ = ['split_rows']
+_all_ = ['expand_rows']
 
 
-def split_rows( df: pd.DataFrame,
-                column_selectors: Union[str, List[str]],
-                row_delimiter: Optional[str] = None
-                ) -> pd.DataFrame:
+def expand_rows( df: pd.DataFrame,
+                 column_selectors: Union[str, List[str]],
+                 row_delimiter: Optional[str] = None
+                 ) -> pd.DataFrame:
     """Given a dataframe in which certain columns are lists, it splits these lists
     making new rows in the :class:`~pandas.DataFrame` out of itself.
 
@@ -30,6 +30,8 @@ def split_rows( df: pd.DataFrame,
 
     Modified from
     `recipe <https://gist.github.com/jlln/338b4b0b55bd6984f883#gistcomment-2698588>`_,
+
+    .. codeauthor:: Jaume Bonet <jaume.bonet@gmail.com>
     """
     # we need to keep track of the ordering of the columns
     def _split_list_to_rows(row, row_accumulator, column_selector, row_delimiter):

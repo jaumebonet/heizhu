@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-Data Modifiers.
+Data and Shape Modifiers.
+
 """
+
 # Standard Libraries
 import copy
 from typing import List, Optional, Union

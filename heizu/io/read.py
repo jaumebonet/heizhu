@@ -2,6 +2,7 @@
 """
 Extended input manipulations.
 """
+
 # Standard Libraries
 import os.path as op
 import re
